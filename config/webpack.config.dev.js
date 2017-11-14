@@ -9,8 +9,10 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -237,6 +239,12 @@ module.exports = {
     // makes the discovery automatic so you don't have to restart.
     // See https://github.com/facebookincubator/create-react-app/issues/186
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+    new ManifestPlugin({
+      fileName: 'static/asset-manifest.json',
+    }),
+    new ServiceWorkerWebpackPlugin({
+      entry: paths.appSrc + '/sw.js',
+    }),
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
     // solution that requires the user to opt into importing specific locales.
