@@ -13,13 +13,19 @@ self.addEventListener('install', event => {
                     assets['main.js'],
                  ])
               )
-        ).then(() => self.skipWaiting())
+        )
+        .then(() => self.skipWaiting())
         .catch(err => console.log)
   )
 })
 
 self.addEventListener('fetch', function(event) {
   console.log('Fetch')
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => response || fetch(event.request))
+      .catch(e => console.error('Error on the cache', e))
+  )
 })
 
 self.addEventListener("activate", event => {
@@ -30,7 +36,7 @@ self.addEventListener("activate", event => {
       .then(keyList =>
         Promise.all(keyList.map(key => {
             if (!cacheWhitelist.includes(key)) {
-              return caches.delete(key);
+              return caches.delete(key)
             }
         }))
       )
