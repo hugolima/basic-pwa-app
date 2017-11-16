@@ -1,8 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Home from './components/Home';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Home from './components/Home'
+import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<Home />, document.getElementById('root'));
-registerServiceWorker();
+const App = () => (
+  <MuiThemeProvider>
+    <Home />
+  </MuiThemeProvider>
+)
+
+ReactDOM.render(
+ <App />,
+  document.getElementById('root')
+)
+
+registerServiceWorker()

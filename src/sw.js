@@ -23,7 +23,7 @@ self.addEventListener('fetch', function(event) {
   console.log('Fetch')
   event.respondWith(
     caches.match(event.request)
-      .then(response => response || fetch(event.request))
+      .then(response => /* response || */ fetch(event.request))
       .catch(e => console.error('Error on the cache', e))
   )
 })
@@ -31,6 +31,7 @@ self.addEventListener('fetch', function(event) {
 self.addEventListener("activate", event => {
   console.log('Activate');
   const cacheWhitelist = [CACHE_NAME]
+  
   event.waitUntil(
     caches.keys()
       .then(keyList =>

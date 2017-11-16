@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import AppBar from 'material-ui/AppBar'
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Lista de Alertas</h1>
+        <AppBar title='Sistema de Alertas' />
       </div>
     )
   }
