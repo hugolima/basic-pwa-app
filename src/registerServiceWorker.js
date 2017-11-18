@@ -14,7 +14,6 @@ export default function register() {
       onUpdateReady: () => {
         console.log('onUpdateReady')
       },
-
       onUpdating: () => {
         console.log('onUpdating')
       },

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import AppBar from 'material-ui/AppBar'
 import { Card, CardHeader, CardText } from 'material-ui/Card'
+import MainAppBar from '../Layout/mainAppBar'
 
 class Home extends Component {
   componentDidMount() {
@@ -10,10 +10,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <AppBar title="Alertas recebidos" />
+        <MainAppBar title="Recebidos" />
         <Card>
           <CardHeader
-            title="Titulo do Alerta 1"
+            title="Fulando de Tal"
             subtitle="10/07/17 12:00"
             actAsExpander={true}
             showExpandableButton={true}
@@ -26,7 +26,7 @@ class Home extends Component {
         </Card>
         <Card>
           <CardHeader
-            title="Titulo do Alerta 2"
+            title="Siclano Silva"
             subtitle="13/09/17 16:30"
             actAsExpander={true}
             showExpandableButton={true}
