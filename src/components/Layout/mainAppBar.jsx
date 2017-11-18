@@ -19,7 +19,7 @@ class MainAppBar extends React.Component {
     return (
       <div>
         <AppBar title={this.props.title} onLeftIconButtonTouchTap={this.handleToggle} />
-        <MainMenu open={this.state.menuOpen} handleClose={() => this.handleClose()} />
+        <MainMenu open={this.state.menuOpen} handleClose={this.handleClose} />
       </div>
     )
   }
