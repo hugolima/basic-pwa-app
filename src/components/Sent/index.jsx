@@ -1,11 +1,9 @@
 import React from 'react'
 import { Card, CardHeader, CardText } from 'material-ui/Card'
-import MainAppBar from '../Layout/mainAppBar'
 
 function Sent() {
   return (
     <div>
-      <MainAppBar title="Enviados" />
       <Card>
         <CardHeader title="Jose" subtitle="10/07/17 12:00" actAsExpander={true} showExpandableButton={true} />
         <CardText expandable={true}>

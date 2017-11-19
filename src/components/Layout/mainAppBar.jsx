@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 import AppBar from 'material-ui/AppBar'
 import MainMenu from './mainMenu'
 
+const titles = {
+  received: 'Recebidos',
+  sent: 'Enviados',
+}
+
 class MainAppBar extends React.Component {
   constructor(props) {
     super(props)
@@ -18,7 +23,10 @@ class MainAppBar extends React.Component {
   render() {
     return (
       <div>
-        <AppBar title={this.props.title} onLeftIconButtonTouchTap={this.handleToggle} />
+        <AppBar
+          title={titles[this.props.location.pathname.substring(1)]}
+          onLeftIconButtonTouchTap={this.handleToggle}
+        />
         <MainMenu open={this.state.menuOpen} handleClose={this.handleClose} />
       </div>
     )
@@ -26,7 +34,7 @@ class MainAppBar extends React.Component {
 }
 
 MainAppBar.propTypes = {
-  title: PropTypes.string.isRequired,
+  location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
 }
 
 export default MainAppBar

@@ -10,7 +10,12 @@ import Account from 'material-ui/svg-icons/action/account-circle'
 import DirectionsRun from 'material-ui/svg-icons/maps/directions-run'
 
 const linkStyle = {
+  textDecoration: 'none',
+}
+
+const linkActiveStyle = {
   fontWeight: 'bold',
+  textDecoration: 'none',
 }
 
 function MainMenu({ open, handleClose }) {
@@ -18,19 +23,21 @@ function MainMenu({ open, handleClose }) {
     <div>
       <Drawer docked={false} width={200} open={open} onRequestChange={handleClose}>
         <Menu>
-          <NavLink to="/" exact activeStyle={linkStyle}>
+          <NavLink to="/received" style={linkStyle} activeStyle={linkActiveStyle}>
             <MenuItem onClick={handleClose} leftIcon={<CallReceived />}>
               Recebidos
             </MenuItem>
           </NavLink>
-          <NavLink to="/sent" activeStyle={linkStyle}>
+          <NavLink to="/sent" style={linkStyle} activeStyle={linkActiveStyle}>
             <MenuItem onClick={handleClose} leftIcon={<CallMade />}>
               Enviados
             </MenuItem>
           </NavLink>
-          <MenuItem onClick={handleClose} leftIcon={<Account />}>
-            Perfil
-          </MenuItem>
+          <NavLink exact to="/" style={linkStyle} activeStyle={linkActiveStyle}>
+            <MenuItem onClick={handleClose} leftIcon={<Account />}>
+              Perfil
+            </MenuItem>
+          </NavLink>
           <MenuItem onClick={handleClose} leftIcon={<DirectionsRun />}>
             Logout
           </MenuItem>
