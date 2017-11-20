@@ -6,6 +6,7 @@ import MainMenu from './mainMenu'
 const titles = {
   received: 'Recebidos',
   sent: 'Enviados',
+  login: 'Efetue o Login',
 }
 
 class MainAppBar extends React.Component {
