@@ -20,30 +20,28 @@ const linkActiveStyle = {
 
 function MainMenu({ open, handleClose }) {
   return (
-    <div>
-      <Drawer docked={false} width={200} open={open} onRequestChange={handleClose}>
-        <Menu>
-          <NavLink to="/received" style={linkStyle} activeStyle={linkActiveStyle}>
-            <MenuItem onClick={handleClose} leftIcon={<CallReceived />}>
-              Recebidos
-            </MenuItem>
-          </NavLink>
-          <NavLink to="/sent" style={linkStyle} activeStyle={linkActiveStyle}>
-            <MenuItem onClick={handleClose} leftIcon={<CallMade />}>
-              Enviados
-            </MenuItem>
-          </NavLink>
-          <NavLink exact to="/" style={linkStyle} activeStyle={linkActiveStyle}>
-            <MenuItem onClick={handleClose} leftIcon={<Account />}>
-              Perfil
-            </MenuItem>
-          </NavLink>
-          <MenuItem onClick={handleClose} leftIcon={<DirectionsRun />}>
-            Logout
+    <Drawer docked={false} width={200} open={open} onRequestChange={handleClose}>
+      <Menu>
+        <NavLink to="/received" style={linkStyle} activeStyle={linkActiveStyle}>
+          <MenuItem onClick={handleClose} leftIcon={<CallReceived />}>
+            Recebidos
           </MenuItem>
-        </Menu>
-      </Drawer>
-    </div>
+        </NavLink>
+        <NavLink to="/sent" style={linkStyle} activeStyle={linkActiveStyle}>
+          <MenuItem onClick={handleClose} leftIcon={<CallMade />}>
+            Enviados
+          </MenuItem>
+        </NavLink>
+        <NavLink exact to="/" style={linkStyle} activeStyle={linkActiveStyle}>
+          <MenuItem onClick={handleClose} leftIcon={<Account />}>
+            Perfil
+          </MenuItem>
+        </NavLink>
+        <MenuItem onClick={handleClose} leftIcon={<DirectionsRun />}>
+          Logout
+        </MenuItem>
+      </Menu>
+    </Drawer>
   )
 }
 
