@@ -17,7 +17,7 @@ export default function configureStore() {
   const preloadedState = getJsonObject('state') || {}
   const store = createStore(reducers, preloadedState, applyMiddleware(...middleware))
 
-  store.subscribe(throttle(() => saveJsonObject('state', store.getState()), 3000))
+  store.subscribe(throttle(() => saveJsonObject('state', store.getState()), 4000))
 
   return store
 }

@@ -3,7 +3,9 @@ let { localStorage } = window
 if (!localStorage) {
   localStorage = {
     setItem() {},
-    getItem() {},
+    getItem() {
+      return null
+    },
   }
 }
 

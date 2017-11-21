@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import formLogin from './form-login'
 import loggedUser from './logged-user'
 
-export default combineReducers({ loggedUser })
+export default combineReducers({ formLogin, loggedUser })

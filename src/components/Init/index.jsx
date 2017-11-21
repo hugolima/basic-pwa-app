@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-function init({ user }) {
+function Init({ user }) {
   return user.login !== '' ? (
     <Redirect
       to={{
@@ -21,7 +21,7 @@ function init({ user }) {
   )
 }
 
-init.propTypes = {
+Init.propTypes = {
   user: PropTypes.shape({ login: PropTypes.string }).isRequired,
 }
 
@@ -29,4 +29,4 @@ const mapStateToProps = state => ({
   user: state.loggedUser,
 })
 
-export default connect(mapStateToProps)(init)
+export default connect(mapStateToProps)(Init)
