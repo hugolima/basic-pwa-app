@@ -1,6 +1,8 @@
-import { createStore, compose, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
+import throttle from 'lodash.throttle'
 import reducers from './rdx-reducers'
+import { saveJsonObject, getJsonObject } from './commons/local-storage'
 
 const middleware = [thunkMiddleware]
 
@@ -12,6 +14,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default function configureStore() {
-  const store = compose(applyMiddleware(...middleware))(createStore)(reducers)
+  const preloadedState = getJsonObject('state') || {}
+  const store = createStore(reducers, preloadedState, applyMiddleware(...middleware))
+
+  store.subscribe(throttle(() => saveJsonObject('state', store.getState()), 3000))
+
   return store
 }
