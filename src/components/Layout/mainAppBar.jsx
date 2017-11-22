@@ -7,6 +7,7 @@ const titles = {
   received: 'Recebidos',
   sent: 'Enviados',
   login: 'Efetue o Login',
+  profile: 'Alterar Perfil',
 }
 
 class MainAppBar extends React.Component {
@@ -25,7 +26,7 @@ class MainAppBar extends React.Component {
     return (
       <div>
         <AppBar
-          title={titles[this.props.location.pathname.substring(1)]}
+          title={titles[this.props.location.pathname.substring(1)] || 'Erro'}
           onLeftIconButtonTouchTap={this.handleToggle}
         />
         <MainMenu open={this.state.menuOpen} handleClose={this.handleClose} />

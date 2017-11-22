@@ -2,6 +2,7 @@ let { localStorage } = window
 
 if (!localStorage) {
   localStorage = {
+    removeItem() {},
     setItem() {},
     getItem() {
       return null
@@ -23,4 +24,8 @@ export function getObject(id) {
 
 export function getJsonObject(id) {
   return JSON.parse(getObject(id))
+}
+
+export function removeItem(id) {
+  localStorage.removeItem(id)
 }

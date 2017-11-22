@@ -40,9 +40,13 @@ export const login = () => (dispatch, getState) => {
   dispatch(updateFormValues({ loginError: '', passwordError: '' }))
 
   if (validateForm(formValues, dispatch)) {
-    saveObject('token', 'TESTE')
+    saveObject('tkna', 'TESTE')
+
     dispatch(updateLoggedUser(user))
+    dispatch(cleanFormValues())
+
+    return Promise.resolve()
   }
 
-  return Promise.resolve()
+  return new Promise((resolve, reject) => reject())
 }

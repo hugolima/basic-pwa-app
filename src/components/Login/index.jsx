@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { updateFormValues, login as loginAction, cleanFormValues } from '../../rdx-actions/form-login'
 
@@ -11,7 +12,7 @@ const buttonStyle = {
 }
 
 function Login({
-  formValues, updateValues, login, cleanValues,
+  formValues, updateValues, login, cleanValues, history,
 }) {
   return (
     <div style={{ marginTop: 20 }}>
@@ -30,7 +31,12 @@ function Login({
         onChange={e => updateValues({ password: e.target.value })}
       />
       <br />
-      <RaisedButton label="Login" secondary={true} style={buttonStyle} onClick={login} />
+      <RaisedButton
+        label="Login"
+        secondary={true}
+        style={buttonStyle}
+        onClick={() => login().then(() => history.replace('/received'))}
+      />
       <RaisedButton label="Limpar" style={buttonStyle} onClick={cleanValues} />
     </div>
   )
@@ -41,6 +47,7 @@ Login.propTypes = {
   updateValues: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   cleanValues: PropTypes.func.isRequired,
+  history: PropTypes.shape({ replace: PropTypes.func }).isRequired,
 }
 
 const mapStateToProps = state => ({
@@ -53,4 +60,4 @@ const mapDispatchToProps = dispatch => ({
   cleanValues: () => dispatch(cleanFormValues()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

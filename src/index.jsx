@@ -10,6 +10,8 @@ import Init from './components/Init'
 import Received from './components/Received'
 import Sent from './components/Sent'
 import Login from './components/Login'
+import Profile from './components/Profile'
+import Error404 from './components/Layout/404'
 
 const store = configureStore()
 
@@ -22,9 +24,13 @@ const App = () => (
             <Route exact path="/" component={Init} />
             <Route path="/" component={MainAppBar} />
           </Switch>
-          <Route path="/received" component={Received} />
-          <Route path="/sent" component={Sent} />
-          <Route path="/login" component={Login} />
+          <Switch>
+            <Route path="/received" component={Received} />
+            <Route path="/sent" component={Sent} />
+            <Route path="/login" component={Login} />
+            <Route path="/profile" component={Profile} />
+            <Route component={Error404} />
+          </Switch>
         </div>
       </Router>
     </Provider>
