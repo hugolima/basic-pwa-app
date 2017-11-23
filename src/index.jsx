@@ -7,9 +7,10 @@ import configureStore from './configureStore'
 import registerServiceWorker from './registerServiceWorker'
 import MainAppBar from './components/Layout/mainAppBar'
 import Init from './components/Init'
+import NewAccount from './components/NewAccount'
+import Login from './components/Login'
 import Received from './components/Received'
 import Sent from './components/Sent'
-import Login from './components/Login'
 import Profile from './components/Profile'
 import Error404 from './components/Layout/404'
 
@@ -27,8 +28,9 @@ const App = () => (
           <Switch>
             <Route path="/received" component={Received} />
             <Route path="/sent" component={Sent} />
-            <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
+            <Route path="/login" component={Login} />
+            <Route path="/new_account" component={NewAccount} />
             <Route component={Error404} />
           </Switch>
         </div>

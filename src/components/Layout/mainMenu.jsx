@@ -4,9 +4,10 @@ import { NavLink, withRouter } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
-import CallReceived from 'material-ui/svg-icons/communication/call-received'
-import CallMade from 'material-ui/svg-icons/communication/call-made'
+import FileDownload from 'material-ui/svg-icons/file/file-download'
+import FileUpload from 'material-ui/svg-icons/file/file-upload'
 import Account from 'material-ui/svg-icons/action/account-circle'
+import PersonAdd from 'material-ui/svg-icons/social/person-add'
 import DirectionsRun from 'material-ui/svg-icons/maps/directions-run'
 import { connect } from 'react-redux'
 import { logout as logoutAction } from '../../rdx-actions/logged-user'
@@ -28,12 +29,12 @@ function MainMenu({
       {user.login !== '' && (
         <Menu>
           <NavLink to="/received" style={linkStyle} activeStyle={linkActiveStyle}>
-            <MenuItem onClick={handleClose} leftIcon={<CallReceived />}>
+            <MenuItem onClick={handleClose} leftIcon={<FileDownload />}>
               Recebidos
             </MenuItem>
           </NavLink>
           <NavLink to="/sent" style={linkStyle} activeStyle={linkActiveStyle}>
-            <MenuItem onClick={handleClose} leftIcon={<CallMade />}>
+            <MenuItem onClick={handleClose} leftIcon={<FileUpload />}>
               Enviados
             </MenuItem>
           </NavLink>
@@ -63,7 +64,7 @@ function MainMenu({
             </MenuItem>
           </NavLink>
           <NavLink to="/new_account" style={linkStyle} activeStyle={linkActiveStyle}>
-            <MenuItem onClick={handleClose} leftIcon={<Account />}>
+            <MenuItem onClick={handleClose} leftIcon={<PersonAdd />}>
               Criar Conta
             </MenuItem>
           </NavLink>

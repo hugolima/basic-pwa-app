@@ -8,6 +8,7 @@ const titles = {
   sent: 'Enviados',
   login: 'Efetue o Login',
   profile: 'Alterar Perfil',
+  new_account: 'Criar Conta',
 }
 
 class MainAppBar extends React.Component {
